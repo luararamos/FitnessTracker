@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/button_imc"
         android:background="@color/colorLightGray"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
@@ -15,7 +16,8 @@
         android:paddingEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="wrap_content"
