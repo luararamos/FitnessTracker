@@ -13,45 +13,26 @@
         tools:context=".ImcActivity">
 
         <TextView
+            style="@style/TextViewsForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="40dp"
             android:text="@string/imc_desc" />
 
         <EditText
             android:id="@+id/edit_imc_weight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="40dp"
-            android:hint="@string/weight"
-            android:inputType="number"
-            android:maxLength="3" />
+            style="@style/EditTextForm"
+            android:hint="@string/weight" />
 
         <EditText
             android:id="@+id/edit_imc_height"
+            style="@style/EditTextForm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="40dp"
-            android:hint="@string/height"
-            android:inputType="number"
-            android:maxLength="3" />
+            android:hint="@string/height" />
 
         <Button
             android:id="@+id/btn_imc_send"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginBottom="40dp"
-            android:background="@color/colorAccent"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="@string/calc"
-            android:textColor="@android:color/white" />
+            style="@style/ButtonForm"
+            android:text="@string/calc" />
 
     </LinearLayout>
 </ScrollView>
