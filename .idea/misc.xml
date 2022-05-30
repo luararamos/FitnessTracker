@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker/app/src/main/res/drawable/bg_button_accent.xml" value="0.1265" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker/app/src/main/res/drawable/ic_imc.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker/app/src/main/res/layout/activity_imc.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
