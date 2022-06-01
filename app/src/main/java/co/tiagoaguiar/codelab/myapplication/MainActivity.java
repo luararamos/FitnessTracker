@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         public MainAdapter(List<MainItem> mainItems) {
             this.mainItems = mainItems;
         }
-
+      
         @NonNull
         @Override
         public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
