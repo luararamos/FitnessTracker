@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<MainItem> mainItems = new ArrayList<>();
         mainItems.add(new MainItem(1, R.drawable.ic_imc, R.string.imc, R.color.colorAccent));
-        mainItems.add(new MainItem(2, R.drawable.ic_imc, R.string.tmb, R.color.colorPrimary));
+        mainItems.add(new MainItem(2, R.drawable.ic_baseline_add_reaction_24, R.string.tmb, R.color.colorPrimary));
 
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid
         // ou linear(horizontal/vertical))
