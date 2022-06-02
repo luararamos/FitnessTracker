@@ -1,10 +1,8 @@
 package co.tiagoaguiar.codelab.myapplication;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,14 +44,24 @@ public class ImcActivity extends AppCompatActivity {
             AlertDialog dialog = new AlertDialog.Builder(ImcActivity.this)
                     .setTitle(getString(R.string.imc_response, result))
                     .setMessage(imcResponseId)
-                    .setPositiveButton(android.R.string.ok, (dialog1, which) -> {
+                    .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
                     })
+                    .setNegativeButton(R.string.save, ((dialog1, which) -> {
+                        new Thread(() -> {
+                            long calcId = SqlHelper.getInstance(ImcActivity.this).addItem("imc", result);
+                            runOnUiThread(() -> {
+                                if (calcId > 0) {
+                                    Toast.makeText(ImcActivity.this, R.string.calc_saved, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }).start();
+                    }))
                     .create();
             dialog.show();
 
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(editWeight.getWindowToken(),0);
-            imm.hideSoftInputFromWindow(editHeight.getWindowToken(),0);
+            imm.hideSoftInputFromWindow(editWeight.getWindowToken(), 0);
+            imm.hideSoftInputFromWindow(editHeight.getWindowToken(), 0);
 
         });
 
