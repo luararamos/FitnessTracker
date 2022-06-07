@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, TmbActivity.class));
                     break;
             }
-            Intent intent = new Intent(MainActivity.this, ImcActivity.class);
-            startActivity(intent);
         });
 
         rvMain.setAdapter(adapter);
