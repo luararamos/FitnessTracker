@@ -52,9 +52,10 @@ public class SqlHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Register register = new Register();
+                    register.id= cursor.getInt(cursor.getColumnIndex("id"));
                     register.type = cursor.getString(cursor.getColumnIndex("type_calc"));
                     register.response = cursor.getDouble(cursor.getColumnIndex("res"));
-                    register.cratedDate = cursor.getString(cursor.getColumnIndex("created_date"));
+                    register.createdDate = cursor.getString(cursor.getColumnIndex("created_date"));
 
                     registers.add(register);
                 } while (cursor.moveToNext());

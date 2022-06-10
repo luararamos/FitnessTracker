@@ -28,10 +28,10 @@ public class ListCalcActivity extends AppCompatActivity {
                 List<Register> registers = SqlHelper.getInstance(this).getRegisterBY(type);
                 runOnUiThread(() -> {
                     Log.d("Teste", registers.toString());
+                    rvListCalc.setLayoutManager(new LinearLayoutManager(this));
+                    ImcListAdapter adapter = new ImcListAdapter(registers);
+                    rvListCalc.setAdapter(adapter);
                 });
-                rvListCalc.setLayoutManager(new LinearLayoutManager(this));
-                ImcListAdapter adapter = new ImcListAdapter(registers);
-                rvListCalc.setAdapter(adapter);
 
             }).start();
         }
