@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,9 +56,7 @@ public class ImcActivity extends AppCompatActivity {
                             runOnUiThread(() -> {
                                 if (calcId > 0) {
                                     Toast.makeText(ImcActivity.this, R.string.calc_saved, Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(ImcActivity.this, ListCalcActivity.class);
-                                    intent.putExtra("type", "imc");
-                                    startActivity(intent);
+                                    openListCalcActivity();
                                 }
                             });
                         }).start();
@@ -69,6 +70,29 @@ public class ImcActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_list:
+                    openListCalcActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void openListCalcActivity() {
+        Intent intent = new Intent(ImcActivity.this, ListCalcActivity.class);
+        intent.putExtra("type", "imc");
+        startActivity(intent);
     }
 
     @StringRes
