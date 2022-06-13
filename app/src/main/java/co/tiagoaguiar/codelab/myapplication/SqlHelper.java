@@ -34,7 +34,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
                 // nome da tabela é calc ** (ideal é armazenar numa constante)
-                "CREATE TABLE calc(id INTENGER primary key, type_calc TEXT, res DECIMAL, created_date DATETIME)"
+                "CREATE TABLE calc(id INTEGER primary key, type_calc TEXT, res DECIMAL, created_date DATETIME)"
         );
     }
 
@@ -52,7 +52,6 @@ public class SqlHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Register register = new Register();
-                    register.id= cursor.getInt(cursor.getColumnIndex("id"));
                     register.type = cursor.getString(cursor.getColumnIndex("type_calc"));
                     register.response = cursor.getDouble(cursor.getColumnIndex("res"));
                     register.createdDate = cursor.getString(cursor.getColumnIndex("created_date"));
