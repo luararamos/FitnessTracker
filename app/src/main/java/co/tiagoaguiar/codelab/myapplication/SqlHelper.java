@@ -52,6 +52,7 @@ public class SqlHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     Register register = new Register();
+                    register.id = cursor.getInt(cursor.getColumnIndex("id"));
                     register.type = cursor.getString(cursor.getColumnIndex("type_calc"));
                     register.response = cursor.getDouble(cursor.getColumnIndex("res"));
                     register.createdDate = cursor.getString(cursor.getColumnIndex("created_date"));
@@ -87,6 +88,7 @@ public class SqlHelper extends SQLiteOpenHelper {
             // calc vem daqui **
             //INSERT INTO(ID, ) VALUES (SLDKJ)
             calcId = db.insertOrThrow("calc", null, values);
+            values.put("id", calcId);
             db.setTransactionSuccessful();
 
         } catch (Exception e) {
