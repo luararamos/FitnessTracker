@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import co.tiagoaguiar.codelab.myapplication.adapter.ImcListAdapter;
+import co.tiagoaguiar.codelab.myapplication.adapter.ListCalcAdapter;
 
 public class ListCalcActivity extends AppCompatActivity {
     private RecyclerView rvListCalc;
@@ -29,11 +29,12 @@ public class ListCalcActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     Log.d("Teste", registers.toString());
                     rvListCalc.setLayoutManager(new LinearLayoutManager(this));
-                    ImcListAdapter adapter = new ImcListAdapter(registers);
+                    ListCalcAdapter adapter = new ListCalcAdapter(this ,registers);
                     rvListCalc.setAdapter(adapter);
                 });
 
             }).start();
         }
     }
+
 }

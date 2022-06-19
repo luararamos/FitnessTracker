@@ -20,7 +20,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static SqlHelper INSTANCE;
 
-    static SqlHelper getInstance(Context context) {
+    public static SqlHelper getInstance(Context context) {
         if (INSTANCE == null)
             INSTANCE = new SqlHelper(context);
         return INSTANCE;
@@ -71,12 +71,13 @@ public class SqlHelper extends SQLiteOpenHelper {
         return registers;
     }
 
+
+
     long addItem(String type, double response) {
         SQLiteDatabase db = getWritableDatabase();
-
+        db.beginTransaction();
         long calcId = 0;
         try {
-            db.beginTransaction();
             ContentValues values = new ContentValues();
             values.put("type_calc", type);
             values.put("res", response);
@@ -91,6 +92,51 @@ public class SqlHelper extends SQLiteOpenHelper {
             values.put("id", calcId);
             db.setTransactionSuccessful();
 
+        } catch (Exception e) {
+            Log.e("SQLite", e.getMessage(), e);
+        } finally {
+            if (db.isOpen())
+                db.endTransaction();
+
+        }
+        return calcId;
+    }
+
+    long updateItem(String type, double response, int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        long calcId= 0;
+        try {
+            ContentValues values = new ContentValues();
+            values.put("type_calc", type);
+            values.put("res", response);
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("pt", "BR"));
+            String now = simpleDateFormat.format(new Date());
+
+            values.put("created_date", now);
+
+            String[] stUpdate = new String[]{String.valueOf(id),type};
+            calcId = db.update("calc", values,"id=? and type_calc=?", stUpdate);
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.e("SQLite", e.getMessage(), e);
+        } finally {
+            if (db.isOpen())
+                db.endTransaction();
+
+        }
+        return calcId;
+    }
+
+    public long removeItem(String type, int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        long calcId= 0;
+        try {
+            String[] stRemove = new String[]{String.valueOf(id),type};
+            calcId = db.delete("calc", "id=? and type_calc=?", stRemove);
+            db.setTransactionSuccessful();
         } catch (Exception e) {
             Log.e("SQLite", e.getMessage(), e);
         } finally {
