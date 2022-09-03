@@ -6,6 +6,7 @@ import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rvMain: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.sleep(10000)
+        val splashScreen = installSplashScreen()
         setContentView(R.layout.activity_main)
 
         val mainItems = mutableListOf<MainItem>()
