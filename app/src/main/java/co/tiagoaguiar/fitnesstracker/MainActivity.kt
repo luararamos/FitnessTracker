@@ -2,9 +2,11 @@ package co.tiagoaguiar.fitnesstracker
 
 import android.content.Intent
 import android.graphics.Color
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.fitnesstracker.adapter.MainAdapter
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         mainItems.add(
             MainItem(
                 id = 1,
-                drawableId = R.drawable.ic_icone_imc,
+                drawableId = R.mipmap.ic_woman_foreground,
                 textStringId = R.string.label_imc,
                 color = Color.GREEN
             )
@@ -28,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         mainItems.add(
             MainItem(
                 id = 2,
-                drawableId = R.drawable.ic_icone_imc,
+                drawableId = R.mipmap.ic_working_out_foreground,
                 textStringId = R.string.label_tmb,
                 color = Color.GREEN
             )
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         rvMain.adapter = adapter
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid
         // ou linear(horizontal/vertical))
-        rvMain.layoutManager = LinearLayoutManager(this)
+        rvMain.layoutManager = GridLayoutManager(this,2)
 
 
     }

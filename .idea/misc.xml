@@ -13,9 +13,11 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/ic_imc_woman_background.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/ic_woman_background.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/img_splash_background.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_imc.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/main_item.xml" value="0.22" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_splash.xml" value="0.203125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/main_item.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/mipmap-anydpi-v26/ic_woman.xml" value="0.1" />
       </map>
     </option>
