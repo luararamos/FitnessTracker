@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.fitnesstracker.R
 import co.tiagoaguiar.fitnesstracker.adapter.item.MainItem
@@ -31,7 +32,7 @@ class MainAdapter(private  val mainItems: List<MainItem>) : RecyclerView.Adapter
 class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: MainItem) {
         val text = item.textStringId
-        val buttonTest: Button = itemView.findViewById(R.id.btn_item)
+        val buttonTest: TextView = itemView.findViewById(R.id.item_txt_name)
         buttonTest.setText(item.textStringId)
     }
 
