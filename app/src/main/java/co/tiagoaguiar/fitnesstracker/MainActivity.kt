@@ -36,22 +36,34 @@ class MainActivity : AppCompatActivity() {
                 color = Color.GREEN
             )
         )
-        val adapter = MainAdapter(mainItems, object : OnItemClickListener{
-            //METODO 2: Impl via Objeto Anonimo
-            override fun onClick(id: Int) {
-                when(id){
-                    1 -> {
-                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
-                        startActivity(intent)
-                    }
-                    2 -> {
-                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
-                        startActivity(intent)
-                    }
+
+        val adapter = MainAdapter(mainItems) { id ->
+            when (id) {
+                1 -> {
+                    val intent = Intent(this@MainActivity, ImcActivity::class.java)
+                    startActivity(intent)
+                }
+                2 -> {
+                    val intent = Intent(this@MainActivity, ImcActivity::class.java)
+                    startActivity(intent)
                 }
             }
-
-        })
+        }
+//        val adapter = MainAdapter(mainItems, object : OnItemClickListener{
+//            //METODO 2: Impl via Objeto Anonimo
+//            override fun onClick(id: Int) {
+//                when(id){
+//                    1 -> {
+//                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                    2 -> {
+//                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                }
+//            }
+//        })
         rvMain = findViewById(R.id.rv_main)
         rvMain.adapter = adapter
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid

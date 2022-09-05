@@ -12,7 +12,8 @@ import co.tiagoaguiar.fitnesstracker.adapter.item.MainItem
 
 class MainAdapter(
     private val mainItems: List<MainItem>,
-    private val onItemClickListener: OnItemClickListener
+//    private val onItemClickListener: OnItemClickListener
+    private val onItemClickListener: (Int)-> Unit
 ) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     // 1- Qual é o layout XML da célula específica(item)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
@@ -43,7 +44,11 @@ class MainAdapter(
             name.setText(item.textStringId)
 
             card.setOnClickListener {
-                onItemClickListener.onClick(item.id)
+                //Aqui ele é uma interface
+                // onItemClickListener.onClick(item.id)
+
+                // aqui é uma função
+                onItemClickListener.invoke(item.id)
             }
 
             // 3 maneiras de escutar eventos de click usando células (viewholder) activities
