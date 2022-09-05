@@ -11,7 +11,7 @@ import co.tiagoaguiar.fitnesstracker.adapter.MainAdapter
 import co.tiagoaguiar.fitnesstracker.adapter.OnItemClickListener
 import co.tiagoaguiar.fitnesstracker.adapter.item.MainItem
 
-class MainActivity : AppCompatActivity(), OnItemClickListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var rvMain: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,22 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
                 color = Color.GREEN
             )
         )
-        val adapter = MainAdapter(mainItems, this)
+        val adapter = MainAdapter(mainItems, object : OnItemClickListener{
+            //METODO 2: Impl via Objeto Anonimo
+            override fun onClick(id: Int) {
+                when(id){
+                    1 -> {
+                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
+                        startActivity(intent)
+                    }
+                    2 -> {
+                        val intent = Intent(this@MainActivity, ImcActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+            }
+
+        })
         rvMain = findViewById(R.id.rv_main)
         rvMain.adapter = adapter
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid
@@ -46,16 +61,17 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     }
 
-    override fun onClick(id: Int) {
-        when(id){
-            1 -> {
-                val intent = Intent(this, ImcActivity::class.java)
-                startActivity(intent)
-            }
-            2 -> {
-                val intent = Intent(this, ImcActivity::class.java)
-                startActivity(intent)
-            }
-        }
-    }
+    // METODO 1 - CLIck via interface via activity
+//    override fun onClick(id: Int) {
+//        when(id){
+//            1 -> {
+//                val intent = Intent(this, ImcActivity::class.java)
+//                startActivity(intent)
+//            }
+//            2 -> {
+//                val intent = Intent(this, ImcActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
+//    }
 }
