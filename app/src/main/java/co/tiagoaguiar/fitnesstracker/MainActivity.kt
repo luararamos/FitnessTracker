@@ -2,18 +2,16 @@ package co.tiagoaguiar.fitnesstracker
 
 import android.content.Intent
 import android.graphics.Color
-import android.icu.lang.UCharacter
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.fitnesstracker.adapter.MainAdapter
+import co.tiagoaguiar.fitnesstracker.adapter.OnItemClickListener
 import co.tiagoaguiar.fitnesstracker.adapter.item.MainItem
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var rvMain: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 color = Color.GREEN
             )
         )
-        val adapter = MainAdapter(mainItems)
+        val adapter = MainAdapter(mainItems, this)
         rvMain = findViewById(R.id.rv_main)
         rvMain.adapter = adapter
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid
@@ -46,5 +44,18 @@ class MainActivity : AppCompatActivity() {
         rvMain.layoutManager = GridLayoutManager(this,2)
 
 
+    }
+
+    override fun onClick(id: Int) {
+        when(id){
+            1 -> {
+                val intent = Intent(this, ImcActivity::class.java)
+                startActivity(intent)
+            }
+            2 -> {
+                val intent = Intent(this, ImcActivity::class.java)
+                startActivity(intent)
+            }
+        }
     }
 }
