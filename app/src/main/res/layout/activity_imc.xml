@@ -26,7 +26,6 @@
         <EditText
             android:id="@+id/edit_imc_height"
             style="@style/EditTextForm"
-            android:layout_width="match_parent"
             android:hint="@string/height" />
 
         <Button

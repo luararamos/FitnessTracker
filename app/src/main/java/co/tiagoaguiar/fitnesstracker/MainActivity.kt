@@ -3,6 +3,7 @@ package co.tiagoaguiar.fitnesstracker
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Thread.sleep(10000)
-        val splashScreen = installSplashScreen()
+        installSplashScreen()
         setContentView(R.layout.activity_main)
 
         val mainItems = mutableListOf<MainItem>()
@@ -44,16 +45,16 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 2 -> {
-                    val intent = Intent(this@MainActivity, ImcActivity::class.java)
-                    startActivity(intent)
+                    // abrir uma outra activity
                 }
             }
+            Log.i("Teste", "clicou $id!")
         }
         rvMain = findViewById(R.id.rv_main)
         rvMain.adapter = adapter
         //1 -> Definir o comportamento de exibição do layout da recyclerview (mosaic, grid
         // ou linear(horizontal/vertical))
-        rvMain.layoutManager = GridLayoutManager(this,2)
+        rvMain.layoutManager = GridLayoutManager(this, 2)
 
 
     }
