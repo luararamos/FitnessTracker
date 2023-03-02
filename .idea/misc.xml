@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/bg_button_accent.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/gradient_gray.xml" value="0.1295" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/img_splash_background.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/drawable/splash_bg.xml" value="0.1295" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_imc.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_list_calc.xml" value="0.3323076923076923" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/activity_splash.xml" value="0.203125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/FitnessTracker-start/app/src/main/res/layout/main_item.xml" value="0.25" />

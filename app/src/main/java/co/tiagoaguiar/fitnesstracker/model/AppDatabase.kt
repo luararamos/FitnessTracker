@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [Calc::class], version = 1)
+@TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun calcDao(): CalcDao
@@ -15,7 +17,7 @@ abstract class AppDatabase : RoomDatabase() {
         private var INSTANCE: AppDatabase? = null
 
         fun getDatabase(context: Context): AppDatabase {
-            if (INSTANCE == null) {
+            return if (INSTANCE == null) {
                 synchronized(this) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
@@ -23,12 +25,17 @@ abstract class AppDatabase : RoomDatabase() {
                         "fitness_tracker"
                     ).build()
                 }
-                return INSTANCE as AppDatabase
+                INSTANCE as AppDatabase
             } else {
-                return INSTANCE as AppDatabase
+                INSTANCE as AppDatabase
             }
 
         }
     }
 
 }
+
+// Para salvar com SQLite preciso
+// 1. BD
+// 2. Entidades
+// 3. DAO
