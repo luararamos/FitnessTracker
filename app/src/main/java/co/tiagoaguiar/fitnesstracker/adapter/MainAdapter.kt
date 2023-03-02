@@ -34,6 +34,7 @@ class MainAdapter(
         return mainItems.size
     }
 
+    // é a classe da celula em si
     inner class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: MainItem) {
             val img: ImageView = itemView.findViewById(R.id.item_img_icon)
@@ -44,16 +45,16 @@ class MainAdapter(
             name.setText(item.textStringId)
 
             card.setOnClickListener {
-                //Aqui ele é uma interface
+                //Aqui é por interface (1.)
                 // onItemClickListener.onClick(item.id)
 
-                // aqui é uma função
+                // aqui é via funcao(.3)
                 onItemClickListener.invoke(item.id)
             }
 
             // 3 maneiras de escutar eventos de click usando células (viewholder) activities
-            // 1. impl interface
-            // 2. objetos anonimos
+            // 1. impl interface -> OnItemClickListener
+            // 2. objetos anonimos -> OnItemClickListener sem declarar a interface na activity
             // 3. funcional
         }
     }
