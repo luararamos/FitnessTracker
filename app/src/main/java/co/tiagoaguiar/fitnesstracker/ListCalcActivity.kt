@@ -1,14 +1,11 @@
 package co.tiagoaguiar.fitnesstracker
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import co.tiagoaguiar.fitnesstracker.adapter.SimpleAdapter
-import co.tiagoaguiar.fitnesstracker.model.Calc
+import co.tiagoaguiar.fitnesstracker.adapter.ListCalcAdapter
 
 class ListCalcActivity : AppCompatActivity() {
     private lateinit var rvSimple: RecyclerView
@@ -26,7 +23,7 @@ class ListCalcActivity : AppCompatActivity() {
             runOnUiThread {
                 Log.i("Teste", "resposta: $response")
                 rvSimple = findViewById(R.id.rv_simple)
-                rvSimple.adapter = SimpleAdapter(response)
+                rvSimple.adapter = ListCalcAdapter(response)
                 rvSimple.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
             }
