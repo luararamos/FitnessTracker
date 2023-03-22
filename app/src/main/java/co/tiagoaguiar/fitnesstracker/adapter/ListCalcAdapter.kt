@@ -5,18 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import co.tiagoaguiar.fitnesstracker.R
 import co.tiagoaguiar.fitnesstracker.model.Calc
+import java.text.SimpleDateFormat
+import java.util.*
 
-class SimpleAdapter(
+class ListCalcAdapter(
     private val simpleItems: List<Calc>
-) : RecyclerView.Adapter<co.tiagoaguiar.fitnesstracker.adapter.SimpleAdapter.SimpleViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
+) : RecyclerView.Adapter<ListCalcAdapter.ListCalcViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCalcViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(android.R.layout.simple_list_item_1, parent, false)
-        return SimpleViewHolder(view)
+        return ListCalcViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ListCalcViewHolder, position: Int) {
         val itemCurrent = simpleItems[position]
         holder.bind(itemCurrent)
     }
@@ -25,11 +29,14 @@ class SimpleAdapter(
         return simpleItems.size
     }
 
-    class SimpleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ListCalcViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Calc) {
             val text: TextView = itemView.findViewById(android.R.id.text1)
 
-            text.text = item.res.toString()
+            val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("pt", "BR"))
+            val data = sdf.format(item.createdDate)
+            val res = item.res
+            text.text = itemView.context.getString(R.string.list_response, res , data )
         }
 
     }
