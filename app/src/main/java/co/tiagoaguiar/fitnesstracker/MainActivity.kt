@@ -40,13 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MainAdapter(mainItems) { id ->
             when (id) {
-                1 -> {
-                    val intent = Intent(this@MainActivity, ImcActivity::class.java)
-                    startActivity(intent)
-                }
-                2 -> {
-                    // abrir uma outra activity
-                }
+                1 -> startActivity(Intent(this@MainActivity, ImcActivity::class.java))
+                2 -> startActivity(Intent(this@MainActivity, TmbActivity::class.java))
             }
             Log.i("Teste", "clicou $id!")
         }
