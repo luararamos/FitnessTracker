@@ -1,5 +1,6 @@
 package co.tiagoaguiar.fitnesstracker
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import co.tiagoaguiar.fitnesstracker.model.Calc
 class ListCalcActivity : AppCompatActivity() {
     private lateinit var rvSimple: RecyclerView
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_calc)
@@ -21,7 +23,7 @@ class ListCalcActivity : AppCompatActivity() {
 
         val adapter = ListCalcAdapter(result)
         rvSimple = findViewById(R.id.rv_list)
-        rvSimple.adapter = ListCalcAdapter(result)
+        rvSimple.adapter = adapter
         rvSimple.layoutManager = LinearLayoutManager(this)
 
         Thread {
@@ -39,4 +41,6 @@ class ListCalcActivity : AppCompatActivity() {
 
 
     }
+
+
 }

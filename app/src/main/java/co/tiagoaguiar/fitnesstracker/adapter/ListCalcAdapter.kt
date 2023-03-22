@@ -12,7 +12,8 @@ import java.util.*
 
 class ListCalcAdapter(
     private val simpleItems: List<Calc>
-) : RecyclerView.Adapter<co.tiagoaguiar.fitnesstracker.adapter.ListCalcAdapter.ListCalcViewHolder>() {
+) : RecyclerView.Adapter<ListCalcAdapter.ListCalcViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCalcViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(android.R.layout.simple_list_item_1, parent, false)

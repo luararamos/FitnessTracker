@@ -3,6 +3,8 @@ package co.tiagoaguiar.fitnesstracker
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
@@ -47,9 +49,7 @@ class ImcActivity : AppCompatActivity() {
                         dao.insert(Calc(type = "imc", res = result))
 
                         runOnUiThread {
-                            val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
-                            intent.putExtra("type", "imc")
-                            startActivity(intent)
+                            openListActivity()
                         }
                     }.start()
                 }
@@ -60,6 +60,25 @@ class ImcActivity : AppCompatActivity() {
             val service = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             service.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_search) {
+            finish()
+            openListActivity()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun openListActivity() {
+        val intent = Intent(this@ImcActivity, ListCalcActivity::class.java)
+        intent.putExtra("type", "imc")
+        startActivity(intent)
     }
 
     // Uma notacao para retornar string de referencia e nao permitir outro como int
