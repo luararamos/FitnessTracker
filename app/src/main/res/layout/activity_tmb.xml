@@ -20,17 +20,17 @@
             android:text="@string/tmb_desc" />
 
         <EditText
-            android:id="@+id/edit_tmb_weight"
+            android:id="@+id/editTmbWeight"
             style="@style/EditTextForm"
             android:hint="@string/weight" />
 
         <EditText
-            android:id="@+id/edit_tmb_height"
+            android:id="@+id/editTmbHeight"
             style="@style/EditTextForm"
             android:hint="@string/height" />
 
         <EditText
-            android:id="@+id/edit_age"
+            android:id="@+id/editAge"
             style="@style/EditTextForm"
             android:hint="@string/age" />
 
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content">
 
             <AutoCompleteTextView
-                android:id="@+id/auto_lifestyle"
+                android:id="@+id/autoLifestyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"/>
@@ -48,7 +48,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_tmb_send"
+            android:id="@+id/btnTmbSend"
             style="@style/ButtonForm"
             android:text="@string/calc" />
 

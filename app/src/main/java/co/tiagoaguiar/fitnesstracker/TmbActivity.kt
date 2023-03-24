@@ -2,12 +2,12 @@ package co.tiagoaguiar.fitnesstracker
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import co.tiagoaguiar.fitnesstracker.databinding.ActivityTmbBinding
 import co.tiagoaguiar.fitnesstracker.model.Calc
 
@@ -18,6 +18,7 @@ class TmbActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityTmbBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val items = resources.getStringArray(R.array.tmb_lifestyle)
         binding.autoLifestyle.setText(items.first())
@@ -36,15 +37,13 @@ class TmbActivity : AppCompatActivity() {
             val height = binding.editTmbHeight.text.toString()
             val age = binding.editAge.text.toString()
 
-            if (!validate(weight, height, age)){
+            if (!validate(weight, height, age)) {
                 Toast.makeText(this, R.string.fields_message, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-
-            val result= calculate(weight.toInt(), height.toInt(), age.toInt())
+            val result = calculate(weight.toInt(), height.toInt(), age.toInt())
             val response = tmbResponse(result)
-            
 
             AlertDialog.Builder(this)
                 .setMessage(getString(R.string.tmb_response, response))
@@ -55,7 +54,7 @@ class TmbActivity : AppCompatActivity() {
                     Thread {
                         val app = application as App
                         val dao = app.db.calcDao()
-                        dao.insert(Calc(type = "tmb", res = result))
+                        dao.insert(Calc(type = "tmb", res = response))
 
                         runOnUiThread {
                             openListActivity()
@@ -67,14 +66,13 @@ class TmbActivity : AppCompatActivity() {
         }
 
 
-
     }
 
-    private fun tmbResponse(result: Double): Double{
+    private fun tmbResponse(result: Double): Double {
 
         val items = resources.getStringArray(R.array.tmb_lifestyle)
 
-        return when(binding.autoLifestyle.text.toString()){
+        return when (binding.autoLifestyle.text.toString()) {
             items[0] -> result * 1.2
             items[1] -> result * 1.375
             items[2] -> result * 1.55
@@ -96,9 +94,10 @@ class TmbActivity : AppCompatActivity() {
                 && !height.startsWith("0")
                 && !age.startsWith("0"))
     }
-    private fun openListActivity(){
+
+    private fun openListActivity() {
         val i = Intent(this, ListCalcActivity::class.java)
-        i.putExtra("type", "tmb" )
+        i.putExtra("type", "tmb")
         startActivity(i)
     }
 }

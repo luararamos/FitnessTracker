@@ -16,7 +16,7 @@ class ListCalcAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCalcViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(android.R.layout.simple_list_item_1, parent, false)
+            .inflate(R.layout.calc_item, parent, false)
         return ListCalcViewHolder(view)
     }
 
@@ -31,7 +31,7 @@ class ListCalcAdapter(
 
     class ListCalcViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Calc) {
-            val text: TextView = itemView.findViewById(android.R.id.text1)
+            val text: TextView = itemView.findViewById(R.id.itemTxtCalc)
 
             val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("pt", "BR"))
             val data = sdf.format(item.createdDate)
