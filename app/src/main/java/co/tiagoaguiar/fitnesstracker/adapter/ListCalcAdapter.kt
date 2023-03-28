@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.fitnesstracker.R
 import co.tiagoaguiar.fitnesstracker.model.Calc
@@ -11,7 +12,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ListCalcAdapter(
-    private val simpleItems: List<Calc>
+    private val simpleItems: List<Calc>,
+    private val onItemClickListener: (Int)-> Unit
 ) : RecyclerView.Adapter<ListCalcAdapter.ListCalcViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCalcViewHolder {
@@ -29,14 +31,20 @@ class ListCalcAdapter(
         return simpleItems.size
     }
 
-    class ListCalcViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ListCalcViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Calc) {
             val text: TextView = itemView.findViewById(R.id.itemTxtCalc)
+            val card: CardView = itemView.findViewById(R.id.itemCardview)
 
             val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale("pt", "BR"))
             val data = sdf.format(item.createdDate)
             val res = item.res
             text.text = itemView.context.getString(R.string.list_response, res , data )
+
+            card.setOnClickListener {
+                onItemClickListener.invoke(item.id)
+            }
+
         }
 
     }
