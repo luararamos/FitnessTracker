@@ -4,16 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import co.tiagoaguiar.fitnesstracker.R
+import co.tiagoaguiar.fitnesstracker.adapter.item.OnListClickListener
 import co.tiagoaguiar.fitnesstracker.model.Calc
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ListCalcAdapter(
     private val simpleItems: List<Calc>,
-    private val onItemClickListener: (Int)-> Unit
+    private val listener: OnListClickListener
 ) : RecyclerView.Adapter<ListCalcAdapter.ListCalcViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListCalcViewHolder {
@@ -41,8 +43,23 @@ class ListCalcAdapter(
             val res = item.res
             text.text = itemView.context.getString(R.string.list_response, res , data )
 
-            card.setOnClickListener {
-                onItemClickListener.invoke(item.id)
+            text.setOnClickListener {
+                AlertDialog.Builder(itemView.getRootView().getContext())
+                    .setTitle(R.string.what_do_you_want_to_do)
+                    .setPositiveButton(R.string.delete) { dialog, which ->
+                        // FIXME: precisamos da posição corrente (adapterPosition) para saber qual item da lista
+                        // FIXME: deve ser removido da recyclerview usando o notify do Adapter
+                        listener.onClickUpdate(adapterPosition, item)
+                        true
+
+                    }
+                    // FIXME: usado para delegar a quem estiver implementando a interface (Activity) o evento para
+                    // FIXME: editar um item da lista
+                    .setNegativeButton(R.string.edit) { dialog, which ->
+                        listener.onClickDelete(item.id, item.type)
+                    }
+                    .create()
+                    .show()
             }
 
         }

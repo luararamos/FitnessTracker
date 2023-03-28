@@ -54,7 +54,16 @@ class TmbActivity : AppCompatActivity() {
                     Thread {
                         val app = application as App
                         val dao = app.db.calcDao()
-                        dao.insert(Calc(type = "tmb", res = response))
+
+                        // FIXME: checa se tem um updateId, se tiver, significa
+                        // FIXME: que viemos da tela da lista de itens e devemos
+                        // FIXME: editar ao inves de inserir
+                        val updateId = intent.extras?.getInt("updateId")
+                        if (updateId != null) {
+                            dao.update(Calc(id = updateId, type = "tmb", res = response))
+                        } else {
+                            dao.insert(Calc(type = "tmb", res = response))
+                        }
 
                         runOnUiThread {
                             openListActivity()

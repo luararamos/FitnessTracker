@@ -15,7 +15,7 @@ interface CalcDao {
     fun update(calc: Calc)
 
     @Delete()
-    fun delete(calc: Calc)
+    fun delete(calc: Calc): Int // FIXME: retorna 1 se deu sucesso
 
     // @Query -> buscar
     // @Update -> atualizar
