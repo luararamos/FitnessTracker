@@ -14,8 +14,8 @@ The following tools were used in building the project:
 ### Author
 ---
 
-<a href="https://blog.rocketseat.com.br/author/thiago/">
- <sub><b>Luara Ramos</b></sub></a> <a href="https://www.linkedin.com/in/luararamos-desenvolvedor-android/" title="linkedin">🚀</a>
+<a href="https://www.linkedin.com/in/luararamos-desenvolvedor-android/">
+ <sub><b>Luara Ramos</b></sub></a> >
 
 
 Made with ❤️ by Luara Ramos 👋🏽 Get in touch!
