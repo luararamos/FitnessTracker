@@ -1,6 +1,5 @@
-https://img.shields.io/static/v1?label=<LABEL>&message=kotlin<MESSAGE>&color=brightgreen<COLOR>
 # FitnessTracker (IMC/TMB Calculator)
-<p align="center"> Application for nutritional and metabolic monitoring. FitnessTracker does IMC and TMB calculations</p>
+<p> Application for nutritional and metabolic monitoring. FitnessTracker does IMC and TMB calculations</p>
 
 <img width= "266px" height="562px" src = "https://github.com/luararamos/FitnessTracker-start/blob/main/app/src/main/res/gif/fitness_traker.gif">
 
@@ -16,9 +15,7 @@ The following tools were used in building the project:
 ---
 
 <a href="https://blog.rocketseat.com.br/author/thiago/">
- <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/380327?s=460&u=61b426b901b8fe02e12019b1fdb67bf0072d4f00&v=4" width="100px;" alt=""/>
- <br />
- <sub><b>Thiago Marinho</b></sub></a> <a href="https://blog.rocketseat.com.br/author/thiago//" title="Rocketseat">🚀</a>
+ <sub><b>Luara Ramos</b></sub></a> <a href="https://www.linkedin.com/in/luararamos-desenvolvedor-android/" title="linkedin">🚀</a>
 
 
 Made with ❤️ by Luara Ramos 👋🏽 Get in touch!
