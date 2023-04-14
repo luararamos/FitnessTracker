@@ -11,7 +11,7 @@ The following tools were used in building the project:
 - Androidx
 - AlertDialog
 
-### Author
+# Author
 ---
 
 <a href="https://www.linkedin.com/in/luararamos-desenvolvedor-android/">
