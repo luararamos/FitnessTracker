@@ -14,8 +14,10 @@ The following tools were used in building the project:
 
 # Author
 
+<img width= "80px" height="80px" src = "https://github.com/luararamos/NetflixRemake/assets/35637366/a7aa35cc-bbd2-457e-b738-19c39ba89011">
+</br>
 <a href="https://www.linkedin.com/in/luararamos-desenvolvedor-android/">
- <sub><b>Luara Ramos</b></sub></a> >
+ <sub><b>Luara Ramos (Lise)</b></sub></a> 
 
 
 Made with ❤️ by Luara Ramos 👋🏽 Get in touch!
