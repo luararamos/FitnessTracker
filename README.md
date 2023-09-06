@@ -1,9 +1,14 @@
 # FitnessTracker (IMC/TMB Calculator)
-<p> Application for nutritional and metabolic monitoring. FitnessTracker does IMC and TMB calculations</p>
+This is a BMI and BMR calculation app that allows users to quickly and easily calculate their Body Mass Index and Basal Metabolic Rate.
 
 <img width= "266px" height="562px" src = "https://github.com/luararamos/FitnessTracker-start/blob/main/app/src/main/res/gif/fitness_traker.gif">
 
-### 🛠 Technologies
+# Purpose
+The purpose of this app is to help users:
+- Monitor Health: Calculate and monitor their Body Mass Index (BMI), a common measure to assess if they are within healthy weight ranges.
+- Track Progress: Keep track of their progress over time and make diet and exercise adjustments based on the calculations.
+- 
+# 🛠 Technologies
 The following tools were used in building the project:
 
 - RecyclerView
